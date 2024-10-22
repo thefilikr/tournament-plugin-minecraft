@@ -1,4 +1,4 @@
-package com.filikr.tourn;
+package com.filikr.tourn.gameCommands;
 
 import java.util.*;
 
@@ -85,10 +85,20 @@ public class Command {
         return color.getColor();
     }
 
-    public void deleteCommand(Set<Command> commands) {
-        GRUDUtils.dellCommand(this);
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Command command = (Command) o;
+        return nameCommand.equals(command.nameCommand);
     }
 
+    @Override
+    public int hashCode() {
+        return nameCommand.hashCode();
+    }
 }
 
 

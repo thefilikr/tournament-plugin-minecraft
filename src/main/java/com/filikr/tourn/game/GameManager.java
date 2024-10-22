@@ -1,4 +1,4 @@
-package com.filikr.tourn;
+package com.filikr.tourn.game;
 
 public class GameManager {
 

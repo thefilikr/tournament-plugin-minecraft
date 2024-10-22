@@ -1,4 +1,4 @@
-package com.filikr.tourn;
+package com.filikr.tourn.gameCommands;
 
 public class ColorCommand {
     private int r;

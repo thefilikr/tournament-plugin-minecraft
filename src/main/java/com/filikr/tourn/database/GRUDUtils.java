@@ -1,9 +1,8 @@
-package com.filikr.tourn;
+package com.filikr.tourn.database;
 
-import org.apache.commons.lang3.ObjectUtils;
-import org.bukkit.entity.Player;
+import com.filikr.tourn.gameCommands.ColorCommand;
+import com.filikr.tourn.gameCommands.Command;
 
-import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -66,7 +65,7 @@ public class GRUDUtils {
     }
 
     public static void dellCommand(Command command) {
-        String query = "SELECT id_command FROM commands WHERE name_command = ?";
+        String query = "SELECT id_command FROM commands WHERE name = ?";
 
         int idCommand =  0;
 
@@ -158,7 +157,7 @@ public class GRUDUtils {
     }
 
     public static void setPlayersToCommand(String nameCommand, UUID uuid) {
-        String query = "SELECT id_command FROM commands WHERE name_command = ?";
+        String query = "SELECT id_command FROM commands WHERE name = ?";
         int id_command = 0;
         try (Connection connection = DBUtils.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -187,14 +186,14 @@ public class GRUDUtils {
     }
 
     public static void dellPlayersToCommand(String nameCommand, UUID uuid) {
-        String query = "SELECT id_command FROM commands WHERE name_command = ?";
+        String query = "SELECT id_command FROM commands WHERE name = ?";
         int id_command = 0;
         try (Connection connection = DBUtils.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            preparedStatement.setString(1, nameCommand);
-
-            ResultSet rs = preparedStatement.executeQuery();
-            id_command = rs.getInt("id_command");
+//            preparedStatement.setString(1, nameCommand);
+//
+//            ResultSet rs = preparedStatement.executeQuery();
+//            id_command = rs.getInt("id_command");
 
 
         } catch (SQLException e) {
