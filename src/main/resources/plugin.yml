@@ -1,0 +1,5 @@
+name: tourn
+version: '0.1'
+main: com.filikr.tourn.Tourn
+api-version: '1.21'
+load: STARTUP
